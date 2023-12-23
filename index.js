@@ -4,6 +4,7 @@ const cors = require('cors');
 const ErrorHandeler = require('./middleware/ErrorHandeler');
 const colors = require('colors');
 const dbConnection = require('./utils/db');
+const route = require("./routes/routes");
 // port
 const port = process.env.PORT || 5000;
 // const bmi = require("./routes/bmi.route");
@@ -12,7 +13,7 @@ app.use(cors());
 app.use(express.json());
 dbConnection()
 // -------> Routes <-------
-// app.use("/api/v1",bmi);
+app.use("/api/v1",route);
 // -------> Routes <-------
 app.get("/",(req,res)=>{
     res.send("Route Is Working!!")
